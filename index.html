@@ -5,148 +5,234 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tim Crean</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0a0a0a;
-      --text: #eaeaea;
-      --muted: #888;
-      --accent: #ffffff;
+    --bg: #c9efe6;         /* softer mint */
+    --surface: #ffffff12;  /* subtle glass layer */
+    --text: #0b0f0e;       /* near-black, less harsh */
+    --muted: #2f3b38;      /* softened secondary text */
+    --accent: #2b6f63;     /* deep green accent */
+    --border: rgba(0,0,0,0.08);
     }
 
     * {
-      box-sizing: border-box;
+    box-sizing: border-box;
     }
 
     html {
-      scroll-behavior: smooth;
+    scroll-behavior: smooth;
     }
 
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #d8f6ee 0%, var(--bg) 60%);
+    color: var(--text);
+    line-height: 1.6;
+    animation: fadeIn 1s ease;
     }
 
+    /* fade in */
+    @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+    }
+
+    /* layout */
     .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
     }
 
-    section {
-      padding: 120px 0;
+    .flow > * {
+    margin-top: 100px;
+    }
+
+    .flow > *:first-child {
+    margin-top: 0;
     }
 
     /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
+    .header-container {
+    min-height: 72vh;
+    display: flex;
+    align-items: center;
     }
 
+    .header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    }
+
+    /* typography */
     h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 600;
-      margin: 0;
-      letter-spacing: -2px;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    font-weight: 600;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    margin: 0;
+    }
+
+    h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--muted);
     }
 
     .subtitle {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 1.2rem;
+    margin-top: 12px;
+    font-size: 1.05rem;
+    color: var(--muted);
     }
 
-    /* LINKS */
+    /* NAV */
+    .nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 6px;
+    }
+
+    .nav a {
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.35);
+    }
+
+    /* links */
     a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      transition: all 0.3s ease;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
     }
 
     a:hover {
-      opacity: 0.6;
-      border-bottom: 1px solid white;
+    opacity: 0.75;
+    border-bottom: 1px solid var(--accent);
     }
 
-    /* PROJECTS */
+    /* sections */
+    .scroll-fade {
+    opacity: 0.85;
+    transform: translateY(10px);
+    transition: opacity 0.25s linear, transform 0.25s linear;
+
+    #work,
+    #music,
+    #about,
+    #contact {
+    scroll-margin-top: 80px;
+    }
+    }
+
+    /* work cards */
     .project {
-      margin-bottom: 60px;
-      cursor: pointer;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .project:last-child {
+    border-bottom: none;
     }
 
     .project:hover {
-      transform: translateY(-4px);
-      opacity: 0.8;
+    transform: translateY(-2px);
+    opacity: 0.75;
     }
 
     .project-title {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
+    font-size: 1.25rem;
+    font-weight: 500;
     }
 
     .project-meta {
-      color: var(--muted);
-      font-size: 0.9rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 4px;
     }
 
-    /* ABOUT */
+    /* about */
     .about {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 600px;
+    max-width: 620px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
     }
 
-    /* FOOTER */
+    /* footer */
     footer {
-      padding: 80px 0;
-      font-size: 0.9rem;
-      color: var(--muted);
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-bottom: 80px;
     }
 
-    /* FADE-IN ANIMATION */
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
+    /* spotify embed polish */
+    iframe {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
     }
 
-    .fade.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* small screens */
+    @media (max-width: 700px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        justify-content: flex-start;
+        margin-top: 18px;
+    }
     }
 
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Tim Crean</h1>
-      <div class="subtitle">Producer, Engineer, Musician</div>
-    </div>
-  </section>
+  <div class="container flow">
 
-  <!-- MUSIC -->
-  <section>
-    <div class="container fade">
-      <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/artist/INSERT_ID"
-        width="100%" height="152" frameBorder="0"></iframe>
-    </div>
-  </section>
+    <!-- HERO -->
+    <div class="space"></div>
+    <div class="header-container">
+    <div class="header-inner">
+        <div>
+        <h1>Tim Crean</h1>
+        <div class="subtitle">Producer, Engineer, Musician</div>
+        </div>
 
-  <!-- WORK -->
-  <section>
-    <div class="container fade">
+        <div class="nav">
+        <a href="#work">Work</a>
+        <a href="#music">Music</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        </div>
+    </div>
+    </div>
+
+    <!-- WORK -->
+    <div id="work" class="scroll-fade">
+        <h2>Selected Projects</h2>
       <div class="project">
         <div class="project-title">Wake Up</div>
         <div class="project-meta">2026 — Single</div>
@@ -157,43 +243,59 @@
         <div class="project-meta">2025</div>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section>
-    <div class="container fade">
+    <!-- MUSIC -->
+    <div id="music" class="scroll-fade">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/artist/INSERT_ID"
+        width="100%" height="152" frameborder="0"></iframe>
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="scroll-fade">
       <p class="about">
         Tim Crean is a producer, engineer, and musician exploring space,
         memory, and distortion. Built on atmosphere and restraint,
         each track focuses on tone as much as melody.
       </p>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container fade">
+    <!-- FOOTER -->
+    <footer id="contact" class="scroll-fade">
       <p>
         <a href="mailto:your@email.com">Email</a> —
         <a href="#">Instagram</a> —
         <a href="#">Spotify</a>
       </p>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- FADE-IN SCRIPT -->
+  </div>
+
   <script>
-    const faders = document.querySelectorAll('.fade');
+    const elements = document.querySelectorAll('.scroll-fade');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    function updateScrollFade() {
+      const viewportHeight = window.innerHeight;
+
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const elementCenter = rect.top + rect.height / 2;
+
+        const distanceFromCenter = Math.abs(viewportHeight / 2 - elementCenter);
+        const maxDistance = viewportHeight / 2;
+
+        let opacity = 1 - (distanceFromCenter / maxDistance);
+        opacity = Math.max(0.15, Math.min(1, opacity));
+
+        let translateY = 30 * (distanceFromCenter / maxDistance);
+
+        el.style.opacity = opacity;
+        el.style.transform = `translateY(${translateY}px)`;
       });
-    });
+    }
 
-    faders.forEach(el => observer.observe(el));
+    window.addEventListener('scroll', updateScrollFade);
+    window.addEventListener('load', updateScrollFade);
   </script>
 
 </body>
