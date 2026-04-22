@@ -9,9 +9,10 @@
 
   <style>
     :root {
-    --bg: #c9efe6;         /* softer mint */
+    --bg: #daf2ec;         /* softer mint */
     --surface: #ffffff12;  /* subtle glass layer */
     --text: #0b0f0e;       /* near-black, less harsh */
+    --this: #000000;      /* pure black for maximum contrast */
     --muted: #2f3b38;      /* softened secondary text */
     --accent: #2b6f63;     /* deep green accent */
     --border: rgba(0,0,0,0.08);
@@ -44,11 +45,11 @@
     .container {
     max-width: 860px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
     }
 
     .flow > * {
-    margin-top: 100px;
+    margin-top: 60px;
     }
 
     .flow > *:first-child {
@@ -57,7 +58,7 @@
 
     /* HERO */
     .header-container {
-    min-height: 72vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     }
@@ -95,10 +96,10 @@
     /* NAV */
     .nav {
     display: flex;
-    gap: 18px;
+    gap: 6px;
     flex-wrap: wrap;
     justify-content: flex-end;
-    margin-top: 6px;
+    margin-top: 2px;
     }
 
     .nav a {
@@ -114,7 +115,7 @@
     .nav a:hover {
     color: var(--text);
     border: 1px solid var(--border);
-    background: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.65);
     }
 
     /* links */
@@ -132,16 +133,17 @@
 
     /* sections */
     .scroll-fade {
-    opacity: 0.85;
-    transform: translateY(10px);
-    transition: opacity 0.25s linear, transform 0.25s linear;
+      opacity: 0.9;
+      transform: translateY(5px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
 
     #work,
     #music,
     #about,
-    #contact {
-    scroll-margin-top: 80px;
-    }
+    #contact,
+    #classical {
+      scroll-margin-top: 20px;
     }
 
     /* work cards */
@@ -172,6 +174,71 @@
     margin-top: 4px;
     }
 
+    /* GRID */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    /* CARD */
+    .project-card {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    /* IMAGE */
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px;
+      background: rgba(0,0,0,0.35);
+
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    /* TEXT */
+    .overlay-title {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .overlay-meta {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.8rem;
+    }
+
+    /* HOVER EFFECT */
+    .project-card:hover img {
+      opacity: 0.6;
+      transform: scale(1.03);
+    }
+
+    .project-card:hover .overlay {
+      opacity: 1;
+      /* transform: translateY(-2px); */
+    }
+
     /* about */
     .about {
     max-width: 620px;
@@ -181,10 +248,42 @@
     }
 
     /* footer */
-    footer {
+    .footer {
     font-size: 0.9rem;
-    color: var(--muted);
+    color: var(--this);
     padding-bottom: 80px;
+    text-decoration: underline;
+    }
+
+    .work-layout {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+
+      width: 100vw;
+      max-width: 1200px;
+      margin-left: calc(65% - 50vw);
+      padding: 0 24px;
+    }
+
+    .work-image {
+      flex: 1;
+    }
+
+    .work-image img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .work-content {
+      flex: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .work-layout {
+        flex-direction: column;
+      }
     }
 
     /* spotify embed polish */
@@ -213,7 +312,6 @@
   <div class="container flow">
 
     <!-- HERO -->
-    <div class="space"></div>
     <div class="header-container">
     <div class="header-inner">
         <div>
@@ -225,24 +323,52 @@
         <a href="#work">Work</a>
         <a href="#music">Music</a>
         <a href="#about">About</a>
+        <a href="#classical">Classical Music</a>
         <a href="#contact">Contact</a>
         </div>
     </div>
     </div>
 
     <!-- WORK -->
-    <div id="work" class="scroll-fade">
-        <h2>Selected Projects</h2>
-      <div class="project">
-        <div class="project-title">Wake Up</div>
-        <div class="project-meta">2026 — Single</div>
-      </div>
-
-      <div class="project">
-        <div class="project-title">Untitled Demo</div>
-        <div class="project-meta">2025</div>
-      </div>
+    <div class="scroll-fade work-layout">
+  
+    <div class="work-image">
+      <img src="tim.jpg" alt="Project visual">
     </div>
+
+    <div id="work" class="work-content">
+    <h2>Selected Projects</h2>
+
+    <div class="project-grid">
+
+      <a href="https://open.spotify.com/track/INSERT_TRACK_ID" target="_blank" class="project-card">
+        <img src="sleep.jpg" alt="Sleep Again - Moosecreek Park">
+        <div class="overlay">
+          <div class="overlay-title">Sleep Again - Moosecreek Park</div>
+          <div class="overlay-meta">Asst. Engineering and Mixing</div>
+        </div>
+      </a>
+
+      <a href="https://open.spotify.com/track/INSERT_TRACK_ID" target="_blank" class="project-card">
+        <img src="oasis.jpeg" alt="Oasis by Wonderwall - Everlasting Everything">
+        <div class="overlay">
+          <div class="overlay-title">Oasis by Wonderwall - Everlasting Everything</div>
+          <div class="overlay-meta">Production, Engineering, Mixing</div>
+        </div>
+      </a>
+
+      <a href="https://open.spotify.com/track/INSERT_TRACK_ID" target="_blank" class="project-card">
+        <img src="foodbattle.jpeg" alt="FoodBattle2008 - Everlasting Everything">
+        <div class="overlay">
+          <div class="overlay-title">FoodBattle2008 - Everlasting Everything</div>
+          <div class="overlay-meta">Production, Engineering, Mixing</div>
+        </div>
+      </a>
+
+    </div>
+    </div>
+
+  </div>
 
     <!-- MUSIC -->
     <div id="music" class="scroll-fade">
@@ -263,13 +389,14 @@
     <!-- FOOTER -->
     <footer id="contact" class="scroll-fade">
       <p>
-        <a href="mailto:your@email.com">Email</a> —
+        <a href="mailto:tim.c.crean@gmail.com">Email</a> —
         <a href="#">Instagram</a> —
         <a href="#">Spotify</a>
       </p>
     </footer>
 
   </div>
+  <div style="height: 175px;"></div>
 
   <script>
     const elements = document.querySelectorAll('.scroll-fade');
