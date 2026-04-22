@@ -337,7 +337,7 @@
     </div>
 
     <!-- WORK -->
-    <div  class="scroll-fade work-layout">
+    <div  class="scroll-fade work-layout" style="border-radius: 100%; border: 5px solid white;">
   
     <div id="work" class="work-image">
       <img src="tim.jpg" alt="Project visual">
@@ -384,22 +384,25 @@
         width="100%" height="152" frameborder="0"></iframe>
     </div>
 
+
     <!-- ABOUT -->
-    <div id="about" style="height: 5px;"></div>
-    <h2 style="text-align: right;">About Me</h2>
-    <div class="scroll-fade work-layout">
-      <p class="about">
-      I’m Tim, a producer, engineer, and musician focused on making records that feel intentional, immersive, and emotionally grounded. I’m drawn to atmosphere and detail, and I tend to treat tone and space as just as important as melody and structure.
-      <br><br>
-      I don’t really have a fixed process. Every project asks for something different, and I try to meet it where it is—whether that means shaping arrangements, refining performances, or stepping back and letting something breathe. Most of the time, I find myself just trying to serve the song. The small decisions usually matter the most—the ones you don’t notice unless they’re missing.
-      <br><br>
-      I’m especially interested in the balance between clarity and distortion, restraint and impact. A vocal sitting exactly where it should, a transition that lands a little harder than expected, a part that knows when not to come in—those are the moments I care about.
-      <br><br>
-      Outside of production, I’m always playing and collaborating, looking for new ways to translate feeling into sound.
-      </p>
-      <div class="work-image">
-        <div style="height: 30px;"></div>
-        <img src="tim2.jpg" alt="Project visual">
+    <div class="about-section" style="padding: 0px 10; background: #f5f7fa;">
+      <div id="about" style="height: 5px;"></div>
+      <h1 style="text-align: left;">About Me</h1>
+      <div class="scroll-fade work-layout">
+        <p class="about">
+        I’m Tim, a producer, engineer, and musician focused on making records that feel intentional, immersive, and emotionally grounded. I’m drawn to atmosphere and detail, and I tend to treat tone and space as just as important as melody and structure.
+        <br><br>
+        I don’t really have a fixed process. Every project asks for something different, and I try to meet it where it is—whether that means shaping arrangements, refining performances, or stepping back and letting something breathe. Most of the time, I find myself just trying to serve the song. The small decisions usually matter the most—the ones you don’t notice unless they’re missing.
+        <br><br>
+        I’m especially interested in the balance between clarity and distortion, restraint and impact. A vocal sitting exactly where it should, a transition that lands a little harder than expected, a part that knows when not to come in—those are the moments I care about.
+        <br><br>
+        Outside of production, I’m always playing and collaborating, looking for new ways to translate feeling into sound.
+        </p>
+        <div class="work-image">
+          <div style="height: 30px;"></div>
+          <img src="tim2.jpg" alt="Project visual">
+        </div>
       </div>
     </div>
 
@@ -426,7 +429,7 @@
         const elementCenter = rect.top + rect.height / 2;
 
         const distanceFromCenter = Math.abs(viewportHeight / 2 - elementCenter);
-        const maxDistance = viewportHeight / 2;
+        const maxDistance = viewportHeight / 1.25;
 
         let opacity = 1 - (distanceFromCenter / maxDistance);
         opacity = Math.max(0.15, Math.min(1, opacity));
