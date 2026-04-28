@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Discography – Tim Crean</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tim Crean</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
 
   <style>
     :root {
@@ -315,60 +314,135 @@
 
   </style>
 </head>
-
 <body>
 
-<div class="header-container">
-  <div class="container">
-    <div class="header-inner">
-      <div>
-        <h1>Discography</h1>
-        <div class="subtitle">Full body of work</div>
-      </div>
+  <div id="header"></div>
 
-      <div class="nav">
-        <a href="index.html">Home</a>
-        <a href="discography.html" class="active">Full Discography</a>
-      </div>
-    </div>
-  </div>
-</div>
+  <div class="container flow">
 
-<div class="container flow">
+    <!-- WORK -->
+    <div  class="scroll-fade work-layout" style="border-radius: 100%; background-color: rgb(250, 236, 252);">
+  
+    <!-- <div id="work" class="work-image">
+      <img src="tim.jpg" alt="Project visual">
+    </div> -->
 
-  <div>
-    <h2>All Projects</h2>
+    <div class="work-content">
+    <h2>Full Discography</h2>
 
     <div class="project-grid">
 
-      <a href="#" class="project-card">
-        <img src="sleep.jpg">
+      <a href="https://open.spotify.com/album/4u2W4NhhtR7OyRJstIaMkl" target="_blank" class="project-card">
+        <img src="sleep.jpg" alt="Sleep Again - MooseCreek Park">
         <div class="overlay">
-          <div class="overlay-title">Sleep Again</div>
-          <div class="overlay-meta">Mixing</div>
+          <div class="overlay-title">Sleep Again - MooseCreek Park</div>
+          <div class="overlay-meta">Asst. Engineering and Mixing</div>
         </div>
       </a>
 
-      <a href="#" class="project-card">
-        <img src="oasis.jpeg">
+      <a href="https://open.spotify.com/album/7hOsX8WNLXAaP55g7836wl" target="_blank" class="project-card">
+        <img src="Memories.png" alt="Memories - Computer">
         <div class="overlay">
-          <div class="overlay-title">Oasis</div>
-          <div class="overlay-meta">Production</div>
+          <div class="overlay-title">Memories - Computer</div>
+          <div class="overlay-meta">Asst. Mixing Engineer</div>
         </div>
       </a>
 
-      <a href="#" class="project-card">
-        <img src="foodbattle.jpeg">
+      <a href="https://open.spotify.com/album/6fbyVoBdasRz40VLiCFMXR" target="_blank" class="project-card">
+        <img src="oasis.jpeg" alt="Oasis by Wonderwall - Everlasting Everything">
         <div class="overlay">
-          <div class="overlay-title">FoodBattle2008</div>
-          <div class="overlay-meta">Production</div>
+          <div class="overlay-title">Oasis by Wonderwall - Everlasting Everything</div>
+          <div class="overlay-meta">Production, Engineering, Mixing</div>
+        </div>
+      </a>
+
+      <a href="https://open.spotify.com/album/25SsunLlrl3aqgCUPwUEkv" target="_blank" class="project-card">
+        <img src="foodbattle.jpeg" alt="FoodBattle2008 - Everlasting Everything">
+        <div class="overlay">
+          <div class="overlay-title">FoodBattle2008 - Everlasting Everything</div>
+          <div class="overlay-meta">Production, Engineering, Mixing</div>
+        </div>
+      </a>
+
+      <a href="https://open.spotify.com/track/0t7WDfsvtDQcyH62r73sIt" target="_blank" class="project-card">
+        <img src="haunting.jpeg" alt="Haunting - Rose Cold">
+        <div class="overlay">
+          <div class="overlay-title">Haunting - Rose Cold</div>
+          <div class="overlay-meta">Engineering, Mixing, Mastering</div>
+        </div>
+      </a>
+
+      <a href="https://open.spotify.com/track/77Q5rg3bM1Vi7vbReEACpq" target="_blank" class="project-card">
+        <img src="buriedwithflowers.png" alt="Buried With Flowers - Rose Cold">
+        <div class="overlay">
+          <div class="overlay-title">Buried With Flowers - Rose Cold</div>
+          <div class="overlay-meta">Engineering, Mixing, Mastering</div>
+        </div>
+      </a>
+
+      <a href="https://open.spotify.com/album/277njfJ5s5gz0876ahFjnm" target="_blank" class="project-card">
+        <img src="WakeUp.jpeg" alt="Wake Up - Route Zero">
+        <div class="overlay">
+          <div class="overlay-title">Wake Up - Route Zero</div>
+          <div class="overlay-meta">Production, Engineering, Mixing, Mastering</div>
+        </div>
+      </a>
+
+      <a href="https://open.spotify.com/album/3pwI6oDiPwgllxb8aLXTZC" target="_blank" class="project-card">
+        <img src="Tidal.jpeg" alt="Tidal - Route Zero">
+        <div class="overlay">
+          <div class="overlay-title">Tidal - Route Zero</div>
+          <div class="overlay-meta">Production, Engineering, Mixing, Mastering</div>
         </div>
       </a>
 
     </div>
+    </div>
+
   </div>
 
-</div>
+<div id="footer"></div>
+
+  <script>
+    async function loadComponent(id, file) {
+      const res = await fetch(file);
+      const html = await res.text();
+      document.getElementById(id).innerHTML = html;
+    }
+
+    async function init() {
+      await loadComponent("header", "components/header.html");
+      await loadComponent("footer", "components/footer.html");
+
+      // NOW run your existing scroll animation AFTER loading components
+      const elements = document.querySelectorAll('.scroll-fade');
+
+      function updateScrollFade() {
+        const viewportHeight = window.innerHeight;
+
+        elements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          const elementCenter = rect.top + rect.height / 2;
+
+          const distanceFromCenter = Math.abs(viewportHeight / 2 - elementCenter);
+          const maxDistance = viewportHeight / 1.25;
+
+          let opacity = 1 - (distanceFromCenter / maxDistance);
+          opacity = Math.max(0.15, Math.min(1, opacity));
+
+          let translateY = 30 * (distanceFromCenter / maxDistance);
+
+          el.style.opacity = opacity;
+          el.style.transform = `translateY(${translateY}px)`;
+        });
+      }
+
+      window.addEventListener('scroll', updateScrollFade);
+      window.addEventListener('load', updateScrollFade);
+    }
+
+    init();
+  </script>
 
 </body>
 </html>
