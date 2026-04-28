@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Discography – Tim Crean</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    :root {
+    --bg: #daf2ec;         /* softer mint */
+    --surface: #ffffff12;  /* subtle glass layer */
+    --text: #0b0f0e;       /* near-black, less harsh */
+    --this: #000000;      /* pure black for maximum contrast */
+    --muted: #2f3b38;      /* softened secondary text */
+    --accent: #2b6f63;     /* deep green accent */
+    --border: rgba(0,0,0,0.08);
+    }
+
+    * {
+    box-sizing: border-box;
+    }
+
+    html {
+    scroll-behavior: smooth;
+    }
+
+    body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top, #d8f6ee 0%, var(--bg) 60%);
+    color: var(--text);
+    line-height: 1.6;
+    animation: fadeIn 1s ease;
+    }
+
+    /* fade in */
+    @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+    }
+
+    /* layout */
+    .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+    }
+
+    .flow > * {
+    margin-top: 60px;
+    }
+
+    .flow > *:first-child {
+    margin-top: 0;
+    }
+
+    /* HERO */
+    .header-container {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    }
+
+    .header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    }
+
+    /* typography */
+    h1 {
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    font-weight: 600;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    margin: 0;
+    }
+
+    h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--muted);
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--muted);
+    }
+
+    .subtitle {
+    margin-top: 12px;
+    font-size: 1.05rem;
+    color: var(--muted);
+    }
+
+    /* NAV */
+    .nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 2px;
+    }
+
+    .nav a {
+    font-size: 0.95rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.65);
+    }
+
+    /* links */
+    a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+    }
+
+    a:hover {
+    opacity: 0.75;
+    border-bottom: 1px solid var(--accent);
+    }
+
+    /* sections */
+    .scroll-fade {
+      opacity: 1;
+      transform: translateY(5px);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+
+    #work,
+    /* #music, */
+    #about,
+    #contact,
+    #classical {
+      scroll-margin-top: 80px;
+    }
+
+    /* work cards */
+    .project {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .project:last-child {
+    border-bottom: none;
+    }
+
+    .project:hover {
+    transform: translateY(-2px);
+    opacity: 0.75;
+    }
+
+    .project-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    }
+
+    .project-meta {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 4px;
+    }
+
+    /* GRID */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    /* CARD */
+    .project-card {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    /* IMAGE */
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    /* OVERLAY */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px;
+      background: rgba(0,0,0,0.35);
+
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    /* TEXT */
+    .overlay-title {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .overlay-meta {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.8rem;
+    }
+
+    /* HOVER EFFECT */
+    .project-card:hover img {
+      opacity: 0.6;
+      transform: scale(1.03);
+    }
+
+    .project-card:hover .overlay {
+      opacity: 1;
+      /* transform: translateY(-2px); */
+    }
+
+    /* about */
+    .about {
+    max-width: 620px;
+    color: var(--text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    }
+
+    /* footer */
+    .footer {
+    font-size: 0.9rem;
+    color: var(--this);
+    padding-bottom: 80px;
+    text-decoration: underline;
+    }
+
+    .work-layout {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+
+      width: 100vw;
+      max-width: 1200px;
+      margin-left: calc(65% - 50vw);
+      padding: 0 24px;
+    }
+
+    .work-image {
+      flex: 1;
+    }
+
+    .work-image img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .work-content {
+      flex: 1.5;
+    }
+
+    @media (max-width: 700px) {
+      .work-layout {
+        flex-direction: column;
+      }
+    }
+
+    /* spotify embed polish */
+    iframe {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+    }
+
+    /* small screens */
+    @media (max-width: 700px) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        justify-content: flex-start;
+        margin-top: 18px;
+    }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="header-container">
+  <div class="container">
+    <div class="header-inner">
+      <div>
+        <h1>Discography</h1>
+        <div class="subtitle">Full body of work</div>
+      </div>
+
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="discography.html" class="active">Full Discography</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container flow">
+
+  <div>
+    <h2>All Projects</h2>
+
+    <div class="project-grid">
+
+      <a href="#" class="project-card">
+        <img src="sleep.jpg">
+        <div class="overlay">
+          <div class="overlay-title">Sleep Again</div>
+          <div class="overlay-meta">Mixing</div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <img src="oasis.jpeg">
+        <div class="overlay">
+          <div class="overlay-title">Oasis</div>
+          <div class="overlay-meta">Production</div>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <img src="foodbattle.jpeg">
+        <div class="overlay">
+          <div class="overlay-title">FoodBattle2008</div>
+          <div class="overlay-meta">Production</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
