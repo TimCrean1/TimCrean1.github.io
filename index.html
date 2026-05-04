@@ -9,82 +9,82 @@
 
   <style>
     :root {
-    --bg: #daf2ec;         /* softer mint */
-    --surface: #ffffff12;  /* subtle glass layer */
-    --text: #0b0f0e;       /* near-black, less harsh */
-    --this: #000000;      /* pure black for maximum contrast */
-    --muted: #2f3b38;      /* softened secondary text */
-    --accent: #2b6f63;     /* deep green accent */
-    --border: rgba(0,0,0,0.08);
+      --bg: #daf2ec;
+      --surface: #ffffff12;
+      --text: #0b0f0e;
+      --this: #000000;
+      --muted: #2f3b38;
+      --accent: #2b6f63;
+      --border: rgba(0,0,0,0.08);
     }
 
     * {
-    box-sizing: border-box;
+      box-sizing: border-box;
     }
 
     html {
-    scroll-behavior: smooth;
+      scroll-behavior: smooth;
+      overflow-x: hidden; /* FIX: prevent horizontal scroll */
     }
 
     body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top, #d8f6ee 0%, var(--bg) 60%);
-    color: var(--text);
-    line-height: 1.6;
-    animation: fadeIn 1s ease;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #d8f6ee 0%, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.6;
+      animation: fadeIn 1s ease;
+      overflow-x: hidden; /* FIX: prevent horizontal scroll */
     }
 
-    /* fade in */
     @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    /* layout */
     .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 20px;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     .flow > * {
-    margin-top: 60px;
+      margin-top: 60px;
     }
 
     .flow > *:first-child {
-    margin-top: 0;
+      margin-top: 0;
     }
 
     /* HERO */
     .header-container {
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
     }
 
     .header-inner {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
     }
 
     /* typography */
     h1 {
-    font-size: clamp(3.2rem, 8vw, 7rem);
-    font-weight: 600;
-    letter-spacing: -3px;
-    line-height: 0.9;
-    margin: 0;
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      font-weight: 600;
+      letter-spacing: -3px;
+      line-height: 0.9;
+      margin: 0;
     }
 
     h2 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--muted);
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--muted);
     }
 
     h3 {
@@ -95,47 +95,47 @@
     }
 
     .subtitle {
-    margin-top: 12px;
-    font-size: 1.05rem;
-    color: var(--muted);
+      margin-top: 12px;
+      font-size: 1.05rem;
+      color: var(--muted);
     }
 
     /* NAV */
     .nav {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    margin-top: 2px;
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-top: 2px;
     }
 
     .nav a {
-    font-size: 0.95rem;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    transition: all 0.2s ease;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
     }
 
     .nav a:hover {
-    color: var(--text);
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.65);
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.65);
     }
 
     /* links */
     a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: all 0.2s ease;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
     }
 
     a:hover {
-    opacity: 0.75;
-    border-bottom: 1px solid var(--accent);
+      opacity: 0.75;
+      border-bottom: 1px solid var(--accent);
     }
 
     /* sections */
@@ -146,7 +146,6 @@
     }
 
     #work,
-    /* #music, */
     #about,
     #contact,
     #classical {
@@ -155,36 +154,36 @@
 
     /* work cards */
     .project {
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
     .project:last-child {
-    border-bottom: none;
+      border-bottom: none;
     }
 
     .project:hover {
-    transform: translateY(-2px);
-    opacity: 0.75;
+      transform: translateY(-2px);
+      opacity: 0.75;
     }
 
     .project-title {
-    font-size: 1.25rem;
-    font-weight: 500;
+      font-size: 1.25rem;
+      font-weight: 500;
     }
 
     .project-meta {
-    font-size: 0.9rem;
-    color: var(--muted);
-    margin-top: 4px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 4px;
     }
 
     /* GRID */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* was 140px */
       gap: 16px;
     }
 
@@ -195,7 +194,6 @@
       overflow: hidden;
       border-radius: 12px;
       cursor: pointer;
-
       text-decoration: none;
       color: inherit;
       display: block;
@@ -218,12 +216,10 @@
       justify-content: flex-end;
       padding: 12px;
       background: rgba(0,0,0,0.35);
-
       opacity: 0;
       transition: opacity 0.25s ease;
     }
 
-    /* TEXT */
     .overlay-title {
       color: white;
       font-size: 0.95rem;
@@ -235,7 +231,6 @@
       font-size: 0.8rem;
     }
 
-    /* HOVER EFFECT */
     .project-card:hover img {
       opacity: 0.6;
       transform: scale(1.03);
@@ -243,25 +238,25 @@
 
     .project-card:hover .overlay {
       opacity: 1;
-      /* transform: translateY(-2px); */
     }
 
     /* about */
     .about {
-    max-width: 620px;
-    color: var(--text);
-    font-size: 1.05rem;
-    line-height: 1.7;
+      max-width: 620px;
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.7;
     }
 
     /* footer */
     .footer {
-    font-size: 0.9rem;
-    color: var(--this);
-    padding-bottom: 80px;
-    text-decoration: underline;
+      font-size: 0.9rem;
+      color: var(--this);
+      padding-bottom: 80px;
+      text-decoration: underline;
     }
 
+    /* WORK LAYOUT */
     .work-layout {
       display: flex;
       gap: 40px;
@@ -287,31 +282,55 @@
       flex: 1.5;
     }
 
+    /* spotify embed */
+    iframe {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+    }
+
+    /* ABOUT SECTION */
+    .about-section {
+      padding: 0 10px; /* FIX: was "0px 10" — missing unit */
+      background: #f5f7fa;
+    }
+
+    /* =====================
+       MOBILE STYLES
+       ===================== */
     @media (max-width: 700px) {
+
+      /* FIX: reset the bleed layout so it doesn't overflow */
       .work-layout {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
         flex-direction: column;
       }
-    }
 
-    /* spotify embed polish */
-    iframe {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border: 1px solid var(--border);
-    }
+      /* FIX: tighten section spacing */
+      .flow > * {
+        margin-top: 40px;
+      }
 
-    /* small screens */
-    @media (max-width: 700px) {
-    .header-inner {
+      /* FIX: reduce letter-spacing at small sizes */
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .header-inner {
         flex-direction: column;
         align-items: flex-start;
-    }
+      }
 
-    .nav {
+      .nav {
         justify-content: flex-start;
         margin-top: 18px;
-    }
-    }
+      }
 
+      .project-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+    }
   </style>
 </head>
 <body>
@@ -321,97 +340,89 @@
   <div class="container flow">
 
     <!-- WORK -->
-    <div  class="scroll-fade work-layout" style="border-radius: 100%; background-color: rgb(250, 236, 252);">
-  
-    <div id="work" class="work-image">
-      <img src="tim.jpg" alt="Project visual">
+    <div class="scroll-fade work-layout" style="border-radius: 100%; background-color: rgb(250, 236, 252);">
+
+      <div id="work" class="work-image">
+        <img src="tim.jpg" alt="Project visual">
+      </div>
+
+      <div class="work-content">
+        <h2>Selected Projects</h2>
+
+        <div class="project-grid">
+
+          <a href="https://open.spotify.com/album/4u2W4NhhtR7OyRJstIaMkl" target="_blank" class="project-card">
+            <img src="sleep.jpg" alt="Sleep Again - MooseCreek Park">
+            <div class="overlay">
+              <div class="overlay-title">Sleep Again - MooseCreek Park</div>
+              <div class="overlay-meta">Asst. Engineering and Mixing</div>
+            </div>
+          </a>
+
+          <a href="https://open.spotify.com/album/2A7sv8u9jDZLqdyWxBH1Or" target="_blank" class="project-card">
+            <img src="homesick.png" alt="Homesick - Friends On The Hill">
+            <div class="overlay">
+              <div class="overlay-title">Homesick - Friends On The Hill</div>
+              <div class="overlay-meta">Production, Engineering, Mixing, Mastering</div>
+            </div>
+          </a>
+
+          <a href="https://open.spotify.com/album/6fbyVoBdasRz40VLiCFMXR" target="_blank" class="project-card">
+            <img src="oasis.jpeg" alt="Oasis by Wonderwall - Everlasting Everything">
+            <div class="overlay">
+              <div class="overlay-title">Oasis by Wonderwall - Everlasting Everything</div>
+              <div class="overlay-meta">Production, Engineering, Mixing</div>
+            </div>
+          </a>
+
+          <a href="https://open.spotify.com/album/25SsunLlrl3aqgCUPwUEkv" target="_blank" class="project-card">
+            <img src="foodbattle.jpeg" alt="FoodBattle2008 - Everlasting Everything">
+            <div class="overlay">
+              <div class="overlay-title">FoodBattle2008 - Everlasting Everything</div>
+              <div class="overlay-meta">Production, Engineering, Mixing</div>
+            </div>
+          </a>
+
+          <a href="https://open.spotify.com/track/0t7WDfsvtDQcyH62r73sIt" target="_blank" class="project-card">
+            <img src="haunting.jpeg" alt="Haunting - Rose Cold">
+            <div class="overlay">
+              <div class="overlay-title">Haunting - Rose Cold</div>
+              <div class="overlay-meta">Engineering, Mixing, Mastering</div>
+            </div>
+          </a>
+
+          <a href="https://open.spotify.com/track/77Q5rg3bM1Vi7vbReEACpq" target="_blank" class="project-card">
+            <img src="buriedwithflowers.png" alt="Buried With Flowers - Rose Cold">
+            <div class="overlay">
+              <div class="overlay-title">Buried With Flowers - Rose Cold</div>
+              <div class="overlay-meta">Engineering, Mixing, Mastering</div>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="margin-top: 24px;">
+          <a href="discography.html" style="font-size: 0.95rem;">
+            View Full Discography →
+          </a>
+        </div>
+      </div>
+
     </div>
-
-    <div class="work-content">
-    <h2>Selected Projects</h2>
-
-    <div class="project-grid">
-
-      <a href="https://open.spotify.com/album/4u2W4NhhtR7OyRJstIaMkl" target="_blank" class="project-card">
-        <img src="sleep.jpg" alt="Sleep Again - MooseCreek Park">
-        <div class="overlay">
-          <div class="overlay-title">Sleep Again - MooseCreek Park</div>
-          <div class="overlay-meta">Asst. Engineering and Mixing</div>
-        </div>
-      </a>
-
-      <a href="https://open.spotify.com/album/2A7sv8u9jDZLqdyWxBH1Or" target="_blank" class="project-card">
-        <img src="homesick.png" alt="Homesick - Friends On The Hill">
-        <div class="overlay">
-          <div class="overlay-title">Homesick - Friends On The Hill</div>
-          <div class="overlay-meta">Production, Engineering, Mixing, Mastering</div>
-        </div>
-      </a>
-
-      <a href="https://open.spotify.com/album/6fbyVoBdasRz40VLiCFMXR" target="_blank" class="project-card">
-        <img src="oasis.jpeg" alt="Oasis by Wonderwall - Everlasting Everything">
-        <div class="overlay">
-          <div class="overlay-title">Oasis by Wonderwall - Everlasting Everything</div>
-          <div class="overlay-meta">Production, Engineering, Mixing</div>
-        </div>
-      </a>
-
-      <a href="https://open.spotify.com/album/25SsunLlrl3aqgCUPwUEkv" target="_blank" class="project-card">
-        <img src="foodbattle.jpeg" alt="FoodBattle2008 - Everlasting Everything">
-        <div class="overlay">
-          <div class="overlay-title">FoodBattle2008 - Everlasting Everything</div>
-          <div class="overlay-meta">Production, Engineering, Mixing</div>
-        </div>
-      </a>
-
-      <a href="https://open.spotify.com/track/0t7WDfsvtDQcyH62r73sIt" target="_blank" class="project-card">
-        <img src="haunting.jpeg" alt="Haunting - Rose Cold">
-        <div class="overlay">
-          <div class="overlay-title">Haunting - Rose Cold</div>
-          <div class="overlay-meta">Engineering, Mixing, Mastering</div>
-        </div>
-      </a>
-
-      <a href="https://open.spotify.com/track/77Q5rg3bM1Vi7vbReEACpq" target="_blank" class="project-card">
-        <img src="buriedwithflowers.png" alt="Buried With Flowers - Rose Cold">
-        <div class="overlay">
-          <div class="overlay-title">Buried With Flowers - Rose Cold</div>
-          <div class="overlay-meta">Engineering, Mixing, Mastering</div>
-        </div>
-      </a>
-
-    </div>
-
-    <div style="margin-top: 24px;">
-      <a href="discography.html" style="font-size: 0.95rem;">
-        View Full Discography →
-      </a>
-    </div>
-    </div>
-
-  </div>
-
-    <!-- MUSIC
-    <div id="music" class="scroll-fade">
-      <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/artist/INSERT_ID"
-        width="100%" height="152" frameborder="0"></iframe>
-    </div> -->
-
 
     <!-- ABOUT -->
-    <div class="about-section" style="padding: 0px 10; background: #f5f7fa;">
+    <div class="about-section">
       <div id="about" style="height: 5px;"></div>
       <h1 style="text-align: left;">About Me</h1>
       <div class="scroll-fade work-layout">
         <p class="about">
-        I’m Tim, a producer, engineer, and musician focused on making records that feel intentional, immersive, and emotionally grounded. I’m drawn to atmosphere and detail, and I tend to treat tone and space as just as important as melody and structure.
-        <br><br>
-        I don’t really have a fixed process. Every project asks for something different, and I try to meet it where it is—whether that means shaping arrangements, refining performances, or stepping back and letting something breathe. Most of the time, I find myself just trying to serve the song. The small decisions usually matter the most—the ones you don’t notice unless they’re missing.
-        <br><br>
-        I’m especially interested in the balance between clarity and distortion, restraint and impact. A vocal sitting exactly where it should, a transition that lands a little harder than expected, a part that knows when not to come in—those are the moments I care about.
-        <br><br>
-        Outside of production, I’m always playing and collaborating, looking for new ways to translate feeling into sound.
+          I'm Tim, a producer, engineer, and musician focused on making records that feel intentional, immersive, and emotionally grounded. I'm drawn to atmosphere and detail, and I tend to treat tone and space as just as important as melody and structure.
+          <br><br>
+          I don't really have a fixed process. Every project asks for something different, and I try to meet it where it is—whether that means shaping arrangements, refining performances, or stepping back and letting something breathe. Most of the time, I find myself just trying to serve the song. The small decisions usually matter the most—the ones you don't notice unless they're missing.
+          <br><br>
+          I'm especially interested in the balance between clarity and distortion, restraint and impact. A vocal sitting exactly where it should, a transition that lands a little harder than expected, a part that knows when not to come in—those are the moments I care about.
+          <br><br>
+          Outside of production, I'm always playing and collaborating, looking for new ways to translate feeling into sound.
         </p>
         <div class="work-image">
           <div style="height: 30px;"></div>
@@ -421,14 +432,15 @@
     </div>
 
   </div>
-  <div style="height: 175px;"></div>
+
+  <div style="height: 100px;"></div>
 
   <!-- CONTACT -->
   <div class="container flow">
     <div id="contact" class="scroll-fade">
       <h1>Contact</h1>
       <p style="max-width: 520px;">
-        If you're working on a project, I'd love to hear about it. Send me some details about what you're making and what you’re looking for.
+        If you're working on a project, I'd love to hear about it. Send me some details about what you're making and what you're looking for.
       </p>
 
       <p>
@@ -440,7 +452,7 @@
     </div>
   </div>
 
-<div id="footer"></div>
+  <div id="footer"></div>
 
   <script>
     async function loadComponent(id, file) {
@@ -453,16 +465,23 @@
       await loadComponent("header", "components/header.html");
       await loadComponent("footer", "components/footer.html");
 
-      // NOW run your existing scroll animation AFTER loading components
       const elements = document.querySelectorAll('.scroll-fade');
 
       function updateScrollFade() {
+        // Disable on mobile — just show everything
+        if (window.innerWidth <= 700) {
+          elements.forEach(el => {
+            el.style.opacity = 1;
+            el.style.transform = 'translateY(0)';
+          });
+          return;
+        }
+
         const viewportHeight = window.innerHeight;
 
         elements.forEach(el => {
           const rect = el.getBoundingClientRect();
           const elementCenter = rect.top + rect.height / 2;
-
           const distanceFromCenter = Math.abs(viewportHeight / 2 - elementCenter);
           const maxDistance = viewportHeight / 1.25;
 
@@ -478,6 +497,8 @@
 
       window.addEventListener('scroll', updateScrollFade);
       window.addEventListener('load', updateScrollFade);
+      // Also re-check if user resizes (e.g. rotates phone)
+      window.addEventListener('resize', updateScrollFade);
     }
 
     init();
