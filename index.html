@@ -282,6 +282,33 @@
       flex: 1.5;
     }
 
+    .itch-link {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 5px 10px;
+
+      border-radius: 999px;
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(0,0,0,0.08);
+
+      color: var(--text);
+      font-size: 0.95rem;
+      font-weight: 500;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .itch-link:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.75);
+      border-color: rgba(0,0,0,0.14);
+      opacity: 1;
+    }
+
     /* spotify embed */
     iframe {
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -416,13 +443,11 @@
       <h1 style="text-align: left;">About Me</h1>
       <div class="scroll-fade work-layout">
         <p class="about">
-          I'm Tim, a producer, engineer, and musician focused on making records that feel intentional, immersive, and emotionally grounded. I'm drawn to atmosphere and detail, and I tend to treat tone and space as just as important as melody and structure.
+          I’m Tim, a producer, engineer, and musician based in Brooklyn, NY. I love making music and working with artists across a wide range of genres. While most of my work is rooted in indie rock, hardcore, and metal, I’ve also spent time working in everything from classical and jazz to funk and beyond. Above all, I'm drawn to music that feels like honest expression.
           <br><br>
-          I don't really have a fixed process. Every project asks for something different, and I try to meet it where it is—whether that means shaping arrangements, refining performances, or stepping back and letting something breathe. Most of the time, I find myself just trying to serve the song. The small decisions usually matter the most—the ones you don't notice unless they're missing.
+          Besides my own projects, I also work as an assistant recording and mixing engineer under Billy Mannino at <a href="https://www.twoworlds.studio/" target="_blank">Two Worlds Recording</a> in Queens. The biggest thing I learned from Billy is the importance of serving the song. Everything starts and ends with the song, and every decision I make is made with that centered.
           <br><br>
-          I'm especially interested in the balance between clarity and distortion, restraint and impact. A vocal sitting exactly where it should, a transition that lands a little harder than expected, a part that knows when not to come in—those are the moments I care about.
-          <br><br>
-          Outside of production, I'm always playing and collaborating, looking for new ways to translate feeling into sound.
+          Outside of music, I also am an indie game developer! I participate in game jams a few times a year with some good friends and it's a joy to combine my knowledge of music with one of my favorite hobbies. You can check some of them out on<a href="https://darbus.itch.io/" target="_blank"class="itch-link">my itch.io page!</a>
         </p>
         <div class="work-image">
           <div style="height: 30px;"></div>
