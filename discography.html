@@ -337,6 +337,22 @@
             </div>
           </a>
 
+          <a href="https://open.spotify.com/album/3pwI6oDiPwgllxb8aLXTZC" target="_blank" class="project-card">
+            <img src="Tidal.jpeg" alt="Tidal - Route Zero">
+            <div class="overlay">
+              <div class="overlay-title">Tidal - Route Zero</div>
+              <div class="overlay-meta">Production, Engineering, Mixing, Mastering</div>
+            </div>
+          </a>
+
+          <a href="https://open.spotify.com/album/6dBqqCPNxtdUOJQHfYOycU" target="_blank" class="project-card">
+            <img src="osoexchange.jpeg" alt="an exchange of information - Oso Oso">
+            <div class="overlay">
+              <div class="overlay-title">an exchange of information - Oso Oso</div>
+              <div class="overlay-meta">Asst. Mixing Engineer</div>
+            </div>
+          </a>
+
           <a href="https://open.spotify.com/prerelease/4PldgPBwwdFrWuGLTk3fIU?si=Fv4z0qe1QVaGw_KkuecG8g&utm_source=copy-link&nd=1&dlsi=96455cc779924c79" target="_blank" class="project-card">
             <img src="wakelee.jpeg" alt="Under Construction Forever - wakelee">
             <div class="overlay">
@@ -350,14 +366,6 @@
             <div class="overlay">
               <div class="overlay-title">Sleep Again - MooseCreek Park</div>
               <div class="overlay-meta">Asst. Engineering and Mixing</div>
-            </div>
-          </a>
-
-          <a href="https://open.spotify.com/album/3rLwHwms4iGAtGES4DO2Am" target="_blank" class="project-card">
-            <img src="annabel.jpg" alt="Annabel & Calendars - Annabel">
-            <div class="overlay">
-              <div class="overlay-title">Annabel & Calendars - Annabel</div>
-              <div class="overlay-meta">Asst. Mixing Engineer</div>
             </div>
           </a>
 
@@ -377,10 +385,10 @@
             </div>
           </a>
 
-          <a href="https://open.spotify.com/album/7hOsX8WNLXAaP55g7836wl" target="_blank" class="project-card">
-            <img src="Memories.png" alt="Memories - Computer">
+          <a href="https://open.spotify.com/album/1Nrj4IRSEdY81aCYMg9NV4" target="_blank" class="project-card">
+            <img src="manorknows.jpeg" alt="Nobody Knows You're Here - Manor Gates">
             <div class="overlay">
-              <div class="overlay-title">Memories - Computer</div>
+              <div class="overlay-title">Nobody Knows You're Here - Manor Gates</div>
               <div class="overlay-meta">Asst. Mixing Engineer</div>
             </div>
           </a>
@@ -425,11 +433,11 @@
             </div>
           </a>
 
-          <a href="https://open.spotify.com/album/3pwI6oDiPwgllxb8aLXTZC" target="_blank" class="project-card">
-            <img src="Tidal.jpeg" alt="Tidal - Route Zero">
+          <a href="https://open.spotify.com/album/3rLwHwms4iGAtGES4DO2Am" target="_blank" class="project-card">
+            <img src="annabel.jpg" alt="Annabel & Calendars - Annabel">
             <div class="overlay">
-              <div class="overlay-title">Tidal - Route Zero</div>
-              <div class="overlay-meta">Production, Engineering, Mixing, Mastering</div>
+              <div class="overlay-title">Annabel & Calendars - Annabel</div>
+              <div class="overlay-meta">Asst. Mixing Engineer</div>
             </div>
           </a>
 
@@ -438,6 +446,14 @@
             <div class="overlay">
               <div class="overlay-title">Stairs Under Saturn - Karalina Coates</div>
               <div class="overlay-meta">Production, Engineering, Mixing, Mastering</div>
+            </div>
+          </a>
+
+          <a href="https://open.spotify.com/album/7hOsX8WNLXAaP55g7836wl" target="_blank" class="project-card">
+            <img src="Memories.png" alt="Memories - Computer">
+            <div class="overlay">
+              <div class="overlay-title">Memories - Computer</div>
+              <div class="overlay-meta">Asst. Mixing Engineer</div>
             </div>
           </a>
 
@@ -451,21 +467,30 @@
   <div id="footer"></div>
 
   <script>
+    // Fetch and inject a shared HTML component into the page.
     async function loadComponent(id, file) {
+      // Request the component file from the server.
       const res = await fetch(file);
+      // Read the returned HTML as text.
       const html = await res.text();
+      // Insert the fetched markup into the matching element.
       document.getElementById(id).innerHTML = html;
     }
 
+    // Initialize the page by loading shared layout pieces and setting up scroll effects.
     async function init() {
+      // Load the site header and footer components.
       await loadComponent("header", "components/header.html");
       await loadComponent("footer", "components/footer.html");
 
+      // Get all elements that should fade based on scroll position.
       const elements = document.querySelectorAll('.scroll-fade');
 
+      // Update the fade/slide effect for each scroll-fade element based on viewport position.
       function updateScrollFade() {
-        // FIX: disable scroll fade on mobile
+        // Disable the scroll fade animation on mobile screens to keep the layout stable.
         if (window.innerWidth <= 700) {
+          // Reset each element to full opacity and no vertical offset.
           elements.forEach(el => {
             el.style.opacity = 1;
             el.style.transform = 'translateY(0)';
@@ -473,29 +498,43 @@
           return;
         }
 
+        // Get the current viewport height for calculating distance from center.
         const viewportHeight = window.innerHeight;
 
+        // Calculate the fade and movement for each element.
         elements.forEach(el => {
+          // Get the element's bounding box in the viewport.
           const rect = el.getBoundingClientRect();
+          // Estimate the center of the element.
           const elementCenter = rect.top + rect.height / 2;
+          // Compute how far the element is from the vertical center of the viewport.
           const distanceFromCenter = Math.abs(viewportHeight / 2 - elementCenter);
-          const maxDistance = viewportHeight / 1.25;
+          // Define the maximum distance used to scale the fade effect.
+          const maxDistance = viewportHeight / 0.75;
 
+          // Fade more as the element approaches the viewport center.
           let opacity = 1 - (distanceFromCenter / maxDistance);
+          // Keep opacity between 15% and 100% to avoid disappearing completely.
           opacity = Math.max(0.15, Math.min(1, opacity));
 
+          // Move the element downward as it moves farther from center.
           let translateY = 30 * (distanceFromCenter / maxDistance);
 
+          // Apply the computed styles.
           el.style.opacity = opacity;
           el.style.transform = `translateY(${translateY}px)`;
         });
       }
 
+      // Trigger the fade update whenever the page scrolls.
       window.addEventListener('scroll', updateScrollFade);
+      // Run the fade update when the page finishes loading.
       window.addEventListener('load', updateScrollFade);
+      // Recalculate on resize so the effect remains correct after orientation changes.
       window.addEventListener('resize', updateScrollFade); // FIX: re-check on rotation
     }
 
+    // Start the page initialization sequence.
     init();
   </script>
 
